@@ -4,6 +4,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Accept-CH" content="Sec-CH-UA-Platform-Version, Sec-CH-UA-Model" />
+  <meta property="og:site_name" content="NovoBay Clinic"/>
+  <meta property="og:title" content="Your refreshing bay at heart of bay area"/>
+  <meta property="og:url" content="https://novobayclinic.com"/>
+  <meta property="og:type" content="website"/>
+  <!--
+    Use custom images for “shareable” pages (e.g., homepage, articles, etc.)
+    Use your logo or any other branded image for the rest of your pages.
+    Use images with a 1.91:1 ratio and minimum recommended dimensions of 1200x630 for optimal clarity across all devices.
+  -->
+  <meta property="og:image" content="http://static1.squarespace.com/static/64d63aab2db61b03189dcffe/t/64d642f423f37d5905b6f909/1691763444639/image+%2825%29.png?format=1500w"/>
+  <meta property="og:image:width" content="785"/>
+  <meta property="og:image:height" content="341"/>
+  <meta name="twitter:title" content="NovoBay Clinic"/>
+  <meta name="twitter:image" content="http://static1.squarespace.com/static/64d63aab2db61b03189dcffe/t/64d642f423f37d5905b6f909/1691763444639/image+%2825%29.png?format=1500w"/>
+  <meta name="twitter:url" content="https://goose-blackbird-rh67.squarespace.com"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="description" content="" />  
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <title>Welcome to NovoBay Clinic</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -53,7 +71,7 @@
             <a class="nav-link disabled">Disabled</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
+        <form class="d-flex" role="search" method="POST" action="php/sendemail.php">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -89,8 +107,7 @@
         <div class="col-lg-4 mx-auto">
           <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
-              <img src="images/microneedling.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-                width="700" height ="700" loading="lazy">
+              <img src="images/microneedling.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="microneedling" loading="lazy">
             </div>
           </div>
           <h1 class="display-4 fw-bold text-body-emphasis">Microneedling</h1>
@@ -103,8 +120,7 @@
         <div class="col-lg-4 mx-auto">
           <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
-              <img src="images/Botox.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-                width="700" loading="lazy">
+              <img src="images/Botox.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Botox" loading="lazy">
             </div>
           </div>
           <h1 class="display-4 fw-bold text-body-emphasis">Wrinkle Relaxers</h1>
@@ -116,8 +132,7 @@
         <div class="col-lg-4 mx-auto">
           <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
-              <img src="images/filler.jfif" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-                width="700" loading="lazy">
+              <img src="images/filler.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="filler" loading="lazy">
             </div>
           </div>          
           <h1 class="display-4 fw-bold text-body-emphasis">Dermal Fillers</h1>
