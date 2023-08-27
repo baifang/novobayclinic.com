@@ -20,9 +20,9 @@ try {
 
     //Recipients
     //Recipients
-    $mail->setFrom('nobody@phoenixcel.com', 'NoBody');
+    $mail->setFrom('nobody@novobayclinic.com', 'NoBody');
     //$mail->addAddress($_POST['email'], $_POST['first_name'].' '.$_POST['last_name']);
-    $mail->addAddress('sales@phoenixcel.com', 'Phoenixcel Sales');
+    $mail->addAddress('contact@novobayclinic.com', 'Contact');
     //$mail->addCC($from, $name);
     //$mail->addBCC($from, $name);
     $mail->addReplyTo('nobody@phoenixcel.com', 'NoBody');
