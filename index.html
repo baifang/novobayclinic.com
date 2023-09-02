@@ -44,6 +44,21 @@
       }
     }
   </style>
+  <script>
+    let details = navigator.userAgent;
+    let regexp = /android|iphone|kindle|ipad/i;
+    let isMobileDevice = regexp.test(details);
+    //Text with body OR mail with body and subject
+    function textOrMail(service) {
+      act='';
+      if (isMobileDevice) {
+        act=act.concat('<a href="sms:+14088001222?&body=I am interested in ', service, '. Please contact me. NAME.">Send a message</a>');
+      } else {
+        act=act.concat('<a href="mailto:contact@novobayclinic.com?&subject=',service, '&body=I am interested in', service,'. Please contact me. NAME.">Send a message</a>');
+      }
+      document.write(act);
+    }
+  </script>  
 </head>
 
 <body>
@@ -126,7 +141,7 @@
           <h1 class="display-6 fw-bold text-body-emphasis">Microneedling</h1>
           <p class="lead mb-4">Uses your skin’s natural healing abilities to stimulate collagen and elastin production.</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <a href="sms:+14088001222?&body=I am interested in Microneedling. Please contact me. NAME.">Send a message</a>
+            <script> textOrMail('Microneedling')</script>
           </div>
         </div-->
         <div class="col-lg-4 mx-auto">
@@ -138,8 +153,7 @@
           <h1 class="display-6 fw-bold text-body-emphasis">Wrinkle Relaxers</h1>
           <p class="lead mb-4">Reduce the appearance of lines and wrinkles for a smoother look.</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <a href="sms:+14088001222?&body=I am interested in Wrinkle Relaxers. Please contact me. NAME.">Send a message</a>
-            <!--button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Text: 408-800-1222</button-->
+            <script> textOrMail('Wrinkle Relaxers')</script>
           </div>
         </div>
         <div class="col-lg-4 mx-auto">
@@ -151,8 +165,7 @@
           <h1 class="display-6 fw-bold text-body-emphasis">Dermal Fillers</h1>
           <p class="lead mb-4">Restore volume to your lips, cheeks, jaw, and more.</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <a href="sms:+14088001222?&body=I am interested in Dermal Fillers. Please contact me. NAME.">Send a message</a>
-            <!--button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Text: 408-800-1222</button-->
+            <script> textOrMail('Dermal Fillers')</script>
           </div>
         </div>
       </div>
