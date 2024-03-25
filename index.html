@@ -86,9 +86,9 @@
     function textOrMail(service) {
       act='';
       if (isMobileDevice) {
-        act=act.concat('<a href="sms:+14088001222?&body=I am interested in ', service, '. Please contact me. NAME.">Send a message</a>');
+        act=act.concat('<a href="sms:+14088001222?&body=I am interested in ', service, '. Please contact me. NAME." class="btn btn-primary">Send a message</a>');
       } else {
-        act=act.concat('<a href="mailto:contact@novobayclinic.com?&subject=',service, '&body=I am interested in', service,'. Please contact me. NAME.">Send a message</a>');
+        act=act.concat('<a href="mailto:contact@novobayclinic.com?&subject=',service, '&body=I am interested in', service,'. Please contact me. NAME." class="btn btn-primary">Send a message</a>');
       }
       document.write(act);
     }
@@ -144,83 +144,63 @@
     <div class="hero-image">
       <div class="hero-text">
         <h1>NovoBay (Aesthetic) Clinic</h1>
-        <img class="d-block mx-auto mb-4" src="images/NovoBay_logo.svg" alt="" width="323">
-        <h3>And I'm a Photographer</h3>
-        <h3>$9 per unit*</h3>
-        <h5>Condition apply</h3>
+        <!--img class="d-block mx-auto mb-4" src="images/NovoBay_logo.svg" alt="" width="323"-->
+        <h3 style="color:#22e0ff;">Spring offer</h3>
+        <h3 style="color:#24B592">$9 per unit*</h3>
+        <h6 style="color:#22e0ff;">with 100 units and reviews</h3>
           <a href="https://app.joinmoxie.com/booking/novobay-clinic"><button class="btn btn-primary">Book a Appointment Now</button></a>
       </div>
     </div>
-<!--
-    <h1 class="visually-hidden">Heroes examples</h1>
 
-    <div class="px-4 py-5 my-5 text-center">
-      <img class="d-block mx-auto mb-4" src="images/NovoBay_logo.svg" alt="" width="323">
-      <h1 class="display-5 fw-bold text-body-emphasis">Welcome to NovoBay Clinic</h1>
-      <div class="mx-auto text-start">
-        <p class="lead mb-4">Welcome to the NovoBay Clinic, where your journey to facial and skin
-          rejuvenation begins in the heart of the bay area. Immerse yourself in the luxurious ambiance
-          as we specialize in non-surgical treatments, catering to those seeking a serene, trustworthy,
-          and well-informed partnership with their aesthetic medical provider. Our unwavering dedication
-          revolves around enhancing your natural beauty and self-assurance. Through the provision of
-          unparalleled quality, safety, and personalized care, we foster an atmosphere of respect and
-          professionalism.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-        </div>
-      </div>
-    </div>
-  -->
     <div class="b-example-divider"></div>
 
-
+    
     <div id="services" class="px-4 pt-5 my-5 text-center border-bottom">
-      <div class="row flex-lg-row align-items-center g-5 py-5" >
-        <div class="col-lg-4 mx-auto hero-image" style="background-image: url('images/003-28u-bna.jpg')" >
-          <!--div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="row flex-lg-row align-items-center g-5 py-5">
+        <div class="col-lg-4 mx-auto">
+          <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
-              <img src="images/Botox.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Botox" loading="lazy">
+              <img src="images/003-28u-bna.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Botox" loading="lazy">
             </div>
-          </div-->
+          </div>
           <h1 class="display-6 fw-bold text-body-emphasis">Wrinkle Relaxers</h1>
-          <p class="lead mb-4">Reduce the appearance of lines and wrinkles for a smoother look.</p>
+          <p class="lead mb-4">Reduce the appearance of lines and wrinkles for a smoother look. Carrying Botox and Xeomin.</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
             <script> textOrMail('Wrinkle Relaxers')</script>
           </div>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <a href="https://app.joinmoxie.com/booking/novobay-clinic"> Book Now (via provider)</a>
+            <a href="https://app.joinmoxie.com/booking/novobay-clinic" class="btn btn-primary"> Book Now (via provider)</a>
           </div>
         </div>
-        <div class="col-lg-4 mx-auto hero-image" style="background-image: url('images/003-28u-bna.jpg')">
-          <!--div class="overflow-hidden " style="max-height: 30vh;" >
+        <div class="col-lg-4 mx-auto">
+          <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
-              <img src="images/microneedling.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="microneedling" loading="lazy">
+              <img src="images/microneedling-bna.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="microneedling" loading="lazy">
             </div>
-          </div-->
+          </div>
           <h1 class="display-6 fw-bold text-body-emphasis">Microneedling</h1>
           <p class="lead mb-4">Uses your skin’s natural healing abilities to stimulate collagen and elastin production.</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
             <script> textOrMail('Microneedling')</script>
           </div>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <a href="https://app.joinmoxie.com/booking/novobay-clinic"> Book Now (via provider)</a>
+            <a href="https://app.joinmoxie.com/booking/novobay-clinic" class="btn btn-primary"> Book Now (via provider)</a>
           </div>
         </div>
-        <div class="col-lg-4 mx-auto hero-image" style="background-image: url('images/003-28u-bna.jpg')">
-          <!--div class="overflow-hidden" style="max-height: 30vh;">
+        <div class="col-lg-4 mx-auto">
+          <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
               <img src="images/chemical_peeling.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="chemical peels"
                 loading="lazy">
             </div>
-          </div-->
+          </div>
           <h1 class="display-6 fw-bold text-body-emphasis">Chemical Peeling</h1>
           <p class="lead mb-4">Address fine wrinkles, sun damage, uneven skin tone, acne scars, age spots and freckles, rough skin texture, etc.</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
             <script> textOrMail('Chemical Peeling')</script>
           </div>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <a href="https://app.joinmoxie.com/booking/novobay-clinic"> Book Now (via provider)</a>
+            <a href="https://app.joinmoxie.com/booking/novobay-clinic" class="btn btn-primary"> Book Now (via provider)</a>
           </div>
         </div>
         <!--div class="col-lg-4 mx-auto">
@@ -243,38 +223,29 @@
 
     <div class="b-example-divider"></div>
 
-    <div id="team" class="container-fluid px-4 py-5">
+    <div id="team" class="container px-4 py-5">
       <div class="row flex-lg-row align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6 hero-image" style="background-image: url('images/chunlei.png')">
-          <h1 class="display-6 fw-bold text-body-emphasis lh-1 mb-3">Chunlei Du, RN, FNP</h1>
-          <!--p class="card card-body">NovoBay Clinic was founded by Chunlei Du, a Family Nurse Practitioner with over two decades of experience 
-            in acute hospital care settings as a registered nurse before embarking on my journey as an NP. 
-            Her nursing background encompasses roles in medical-surgical units, step-down units, and ICUs. 
-            These experiences have endowed her with invaluable insights, enabling the cultivation of robust 
-            technical proficiencies and soft skills such as empathy, attentive listening, adept time 
-            management, effective communication, and meticulous attention to detail. She is fascinated by 
-            aesthetic medicine during her graduate studies, and establish this practice after professional trainings.</p-->
+        <div class="col-10 col-sm-8 col-lg-6">
+          <div class="card" style="width: 18rem;">
+            <img src="images/chunlei.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Chunlei Du, RN, FNP</h5>
+              <!--p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p-->
+              <!--a href="#" class="btn btn-primary">Go somewhere</a-->
+            </div>
+          </div>             
         </div>
-        <div class="col-10 col-sm-8 col-lg-6 hero-image" style="background-image: url('images/MarkBernardi.jpeg')">
-          <h1 class="display-6 fw-bold text-body-emphasis lh-1 mb-3">Dr. Mark Bernardi, MD</h1>
-          <!--p class="lead">
-            Dr. Mark Bernardi is an esteemed physician with a strong background in emergency medicine and a passion 
-            for aesthetics. With specialized training and certification in both Botox and fillers, he brings a wealth 
-            of knowledge and expertise to our med spa.
-          </p>            
-          <p class="lead">
-            Bernardi's journey in aesthetics spans over four years, during which he has honed his skills and developed 
-            a keen eye for achieving natural, stunning results. His extensive experience in administering Botox and 
-            fillers allows him to artfully enhance his patients' features, restoring youthfulness and radiance.
-          </p>            
-          <p class="lead">
-            In addition to his procedural expertise, Dr. Bernardi has two years of invaluable experience as a medical director 
-            in the aesthetics industry. This role has provided him with the opportunity to lead and guide teams, ensuring the 
-            highest standards of care and patient satisfaction. Notably, he has served as the medical director at Sevid Beauty 
-            in Seattle and BP Royal Medspa in Las Vegas, where he has made significant contributions to the success and growth 
-            of these practices.
-          </p-->
+        <div class="col-lg-6">
+          <div class="card" style="width: 18rem;">
+            <img src="images/MarkBernardi.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Dr. Mark Bernardi, MD</h5>
+              <!--p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p-->
+              <!--a href="#" class="btn btn-primary">Go somewhere</a-->
+            </div>
+          </div>            
         </div>
+      </div>
     </div>
     
     <div class="b-example-divider"></div>
