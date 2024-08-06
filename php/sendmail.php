@@ -64,7 +64,7 @@ try {
     $mail->AltBody = file_get_contents("php://input"); //$_POST
 
     if ($mail->send()) {
-        echo '<p class="text-success">Thank you for contact us. As early as possible  we will contact you</p>';
+        echo '<p class="text-success">Thank you for contact us. We will get back to you as early as possible.</p>';
     } else {
         echo 'Send mail error';
     }
