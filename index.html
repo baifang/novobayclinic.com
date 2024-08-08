@@ -48,12 +48,15 @@
     //Text with body OR mail with body and subject
     function textOrMail(service) {
       act = '';
+      lower = service.toLowerCase();
       if (isMobileDevice) {
-        act = act.concat('<a href="sms:+14088001222"class="btn btn-outline-primary justify-content-sm-center"">Contact Us</a>');
+        // act = act.concat('<a href="sms:+14088001222"class="btn btn-outline-primary justify-content-sm-center"">Contact Us</a>');
         // act = act.concat('<a href="sms:+14088001222?&body=I am interested in ', service, '. Please contact me. NAME." class="btn btn-primary">Send a message</a>');
+        act = act.concat('<a href="sms:+14088001222?&body=I am interested in ', lower, '. Please contact me with more information." class="lead mt-auto">Learn More &rarr;</a>');
       } else {
-        act = act.concat('<a href="mailto:contact@novobayclinic.com"class="btn btn-outline-primary justify-content-sm-center"">Contact Us</a>');
+        // act = act.concat('<a href="mailto:contact@novobayclinic.com"class="btn btn-outline-primary justify-content-sm-center"">Contact Us</a>');
         // act = act.concat('<a href="mailto:contact@novobayclinic.com?&subject=', service, '&body=I am interested in', service, '. Please contact me. NAME." class="btn btn-primary">Send a message</a>');
+        act = act.concat('<a href="mailto:contact@novobayclinic.com?&subject=', service, '&body=I am interested in ', lower, '. Please contact me with more information." class="lead mt-auto">Learn More &rarr;</a>');
       }
       document.write(act);
     }
@@ -116,46 +119,49 @@
       <div class="row flex-lg-row align-items-stretch">
         <!-- Wrinkle Relaxers -->
         <div class="col-lg-4 mb-4">
-          <div class="bg-light pt-3 pb-1 px-3 rounded-3 h-100 shadow-sm">
-            <img src="images/003-28u-bna.jpg" class="img-fluid rounded-3 mb-4" alt="wrinkle relaxers" loading="lazy">
+          <div class="bg-light p-3 rounded-3 h-100 shadow-sm d-flex flex-column">
+            <img src="images/003-28u-bna.jpg" class="img-fluid rounded-3 mb-4" alt="Wrinkle relaxers before and after"
+              loading="lazy">
             <h3>Wrinkle Relaxers</h3>
             <p class="lead">Reduce the appearance of lines and wrinkles for a smoother look.</p>
             <p class="lead">$10/unit for first time customers.</p>
+            <!-- <a class="lead mt-auto" href=>Learn More ></a> -->
+            <script>textOrMail('Wrinkle Relaxers')</script>
           </div>
         </div>
         <!-- Microneedling -->
         <div class="col-lg-4 mb-4">
-          <div class="bg-light pt-3 pb-1 px-3 rounded-3 h-100 shadow-sm">
-            <img src="images/microneedling-bna.jpg" class="img-fluid rounded-3 mb-4" alt="wrinkle relaxers"
-              loading="lazy">
+          <div class="bg-light p-3 rounded-3 h-100 shadow-sm d-flex flex-column">
+            <img src="images/microneedling-bna.jpg" class="img-fluid rounded-3 mb-4"
+              alt="Microneedling before and after" loading="lazy">
             <h3>Microneedling</h2>
               <p class="lead">Use your skin’s natural healing abilities to stimulate collagen and elastin
                 production.</p>
+              <script>textOrMail('Microneedling')</script>
           </div>
         </div>
         <!-- Chemical Peels -->
         <div class="col-lg-4 mb-4">
-          <div class="bg-light pt-3 pb-1 px-3 rounded-3 h-100 shadow-sm">
-            <img src="images/chemical_peeling.jpg" class="img-fluid rounded-3 mb-4" alt="chemical peels" loading="lazy">
+          <div class="bg-light p-3 rounded-3 h-100 shadow-sm d-flex flex-column">
+            <img src="images/chemical_peeling.jpg" class="img-fluid rounded-3 mb-4" alt="Chemical peels" loading="lazy">
             <h3>Chemical Peels</h2>
               <p class="lead">Address fine wrinkles, uneven skin tone, acne scars, age spots, rough skin
                 texture,
                 and more.</p>
+              <script>textOrMail('Chemical Peels')</script>
           </div>
         </div>
       </div>
 
       <!-- Buttons -->
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-2 d-grid gap-2 mb-2 mb-lg-0">
+        <div class="col-12 col-lg-6">
           <a href="https://app.joinmoxie.com/booking/novobay-clinic" target="_blank" rel="noopener"
-            class="btn btn-primary justify-content-sm-center"> Book Now</a>
+            class="btn btn-primary justify-content-sm-center book-now"> Book Now</a>
         </div>
-        <div class="col-12 col-lg-2 d-grid gap-2">
-          <!-- <a href="https://app.joinmoxie.com/booking/novobay-clinic"
-                        class="btn btn-outline-primary justify-content-sm-center"> Contact Us</a> -->
+        <!-- <div class="col-12 col-lg-2 d-grid gap-2">
           <script> textOrMail('')</script>
-        </div>
+        </div> -->
       </div>
 
     </div>

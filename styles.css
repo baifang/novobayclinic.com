@@ -66,6 +66,10 @@ h2 {
     text-decoration: none;
 }
 
+#services a:not(.book-now) {
+    color: var(--green);
+}
+
 footer {
     color: var(--grey);
 }
@@ -89,10 +93,4 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-}
-
-
-
-h1 {
-    /* color: aqua; */
 }
