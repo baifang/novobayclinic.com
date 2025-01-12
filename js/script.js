@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-
     const sendButton = document.getElementById('send-btn');
     const userMessage = document.getElementById('user-message');
     const chatMessages = document.getElementById('chat-messages');
+    const closeButton = document.getElementById('close-btn');
+    const chatbotContainer = document.getElementById('chatbot-container');
 
+    // Ensure send and message input functionality works
     if (sendButton && userMessage && chatMessages) {
-
         sendButton.addEventListener('click', function () {
             const message = userMessage.value.trim();
 
@@ -21,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         userMessage.addEventListener('keypress', function (event) {
-            if (event.key === 'Enter') {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
                 sendButton.click();
             }
         });
@@ -32,15 +34,21 @@ function appendUserMessage(message) {
     const chatMessages = document.getElementById('chat-messages');
 
     const newMessageBg = document.createElement('div');
-    newMessageBg.classList.add('bg-primary', 'text-white', 'p-2', 'rounded-3');  // Add styling to the message
+    newMessageBg.classList.add('bg-primary', 'text-white', 'ms-3', 'px-2', 'py-2', 'mb-3', 'rounded-3', 'shadow-sm', 'align-self-end', 'd-inline-block', 'text-break', 'lh-sm',);
 
     const newMessage = document.createElement('p');
-    newMessage.textContent = message;
+    newMessage.textContent = message.trim();
+    newMessage.classList.add('mb-0')
+
+    newMessageBg.style.fontSize = '14px'; // Custom font size
 
     newMessageBg.appendChild(newMessage);
 
     chatMessages.appendChild(newMessageBg);
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
+
 
 async function sendMessage(message) {
     try {
@@ -69,10 +77,14 @@ function appendBotMessage(message) {
     const chatMessages = document.getElementById('chat-messages');
 
     const newMessageBg = document.createElement('div');
-    newMessageBg.classList.add('bg-light', 'text-dark', 'p-2', 'rounded-3');  // Add styling to the bot message
+    newMessageBg.classList.add('bg-light', 'text-dark', 'me-3', 'px-2', 'py-2', 'mb-3', 'rounded-3', 'shadow-sm', 'align-self-end', 'd-inline-block', 'text-break', 'mw-75', 'lh-sm',);
+
+    newMessageBg.style.fontSize = '14px'; // Custom font size
 
     const newMessage = document.createElement('p');
     newMessage.textContent = message;
+
+    newMessage.classList.add('mb-0')
 
     newMessageBg.appendChild(newMessage);
 
@@ -80,3 +92,23 @@ function appendBotMessage(message) {
 
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
+
+
+const body = document.body;
+const chatbotContainer = document.getElementById('chatbot-container');
+
+// Enable scroll locking when the chatbot container is active
+chatbotContainer.addEventListener('mouseenter', () => {
+    body.classList.add('no-scroll');
+});
+
+// Enable scrolling back when mouse leaves the chatbot container
+chatbotContainer.addEventListener('mouseleave', () => {
+    body.classList.remove('no-scroll');
+});
+
+// Close button logic to ensure scroll is enabled when closed
+const closeButton = document.getElementById('close-btn');
+closeButton.addEventListener('click', () => {
+    body.classList.remove('no-scroll');
+});
