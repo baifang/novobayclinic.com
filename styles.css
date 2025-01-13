@@ -98,3 +98,12 @@ footer {
 .no-scroll {
     overflow: hidden !important;
 }
+
+#user-message:focus {
+    border-color: var(--green);
+    /* Custom border color */
+    box-shadow: none;
+    /* Custom box-shadow */
+    outline: none;
+    /* Optional: Remove default focus outline */
+}
