@@ -1,21 +1,34 @@
 <?php
+session_start();
 
-$api_url = 'https://api.deepseek.com/chat/completions';
-$api_key = 'sk-ec3f5a1dd39d49fcbf3aba7175b80be8';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$api_url = $_ENV['API_URL'];
+$api_key = $_ENV['API_KEY'];
+
+if (!$api_url || !$api_key) {
+    echo json_encode(['status' => 'error', 'message' => 'API_URL or API_KEY is missing']);
+    exit;
+}
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Check if the message exists
 if (!isset($data['message']) || empty($data['message'])) {
     echo json_encode(['status' => 'error', 'message' => 'No message provided']);
     exit;
 }
 
-// Initialize the conversation history from the cookie (if it exists)
-if (isset($_COOKIE['chat_history'])) {
-    $conversation_history = json_decode($_COOKIE['chat_history'], true);
+// Initialize the conversation history from the session (if it exists)
+if (isset($_SESSION['chat_history'])) {
+    $conversation_history = $_SESSION['chat_history'];
 } else {
-    // Start a fresh conversation if no cookie exists
+    // Start a fresh conversation if no session history exists
     $conversation_history = [
         ['role' => 'system', 'content' => 'You are a helpful assistant.']
     ];
@@ -58,6 +71,12 @@ curl_close($ch);
 // Decode the response from the API
 $response_data = json_decode($response, true);
 
+// Check if JSON decoding was successful
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo json_encode(['status' => 'error', 'message' => 'JSON decoding error: ' . json_last_error_msg()]);
+    exit;
+}
+
 // Check if the response contains a valid message
 if (isset($response_data['choices'][0]['message']['content'])) {
     // Append the assistant's reply to the conversation history
@@ -66,12 +85,21 @@ if (isset($response_data['choices'][0]['message']['content'])) {
         'content' => $response_data['choices'][0]['message']['content']
     ];
 
-    // Set the updated conversation history cookie to expire in 1 hour (you can adjust this)
-    setcookie('chat_history', json_encode($conversation_history), time() + 3600, '/'); // Cookie expires in 1 hour
+    // Save the updated conversation history in the session
+    $_SESSION['chat_history'] = $conversation_history;
 
     // Return the assistant's reply
-    echo json_encode(['status' => 'success', 'message' => $response_data['choices'][0]['message']['content']]);
+    echo json_encode([
+        'status' => 'success',
+        'message' => $response_data['choices'][0]['message']['content']
+    ]);
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Failed to get a valid response from the chatbot']);
+    // Return raw response if the expected message is not found
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Failed to get a valid response from the chatbot',
+        'raw_response' => $response_data
+    ]);
 }
+
 ?>

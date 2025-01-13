@@ -45,11 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-document.getElementById('chatbot-container').addEventListener('shown.bs.collapse', function () {
-    // Focus on the textarea when the collapse is fully shown
-    document.getElementById('user-message').focus();
-});
-
 // Function to get a cookie by its name
 function getCookie(name) {
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -153,23 +148,3 @@ const closeButton = document.getElementById('close-btn');
 closeButton.addEventListener('click', () => {
     body.classList.remove('no-scroll');
 });
-
-
-let details = navigator.userAgent;
-let regexp = /android|iphone|kindle|ipad/i;
-let isMobileDevice = regexp.test(details);
-//Text with body OR mail with body and subject
-function textOrMail(service) {
-    act = '';
-    lower = service.toLowerCase();
-    if (isMobileDevice) {
-        // act = act.concat('<a href="sms:+14088001222"class="btn btn-outline-primary justify-content-sm-center"">Contact Us</a>');
-        // act = act.concat('<a href="sms:+14088001222?&body=I am interested in ', service, '. Please contact me. NAME." class="btn btn-primary">Send a message</a>');
-        act = act.concat('<a href="sms:+14088001222?&body=I am interested in ', lower, '. Please contact me with more information." class="lead mt-auto">Learn More &rarr;</a>');
-    } else {
-        // act = act.concat('<a href="mailto:contact@novobayclinic.com"class="btn btn-outline-primary justify-content-sm-center"">Contact Us</a>');
-        // act = act.concat('<a href="mailto:contact@novobayclinic.com?&subject=', service, '&body=I am interested in', service, '. Please contact me. NAME." class="btn btn-primary">Send a message</a>');
-        act = act.concat('<a href="mailto:contact@novobayclinic.com?&subject=', service, '&body=I am interested in ', lower, '. Please contact me with more information." class="lead mt-auto">Learn More &rarr;</a>');
-    }
-    document.write(act);
-}
